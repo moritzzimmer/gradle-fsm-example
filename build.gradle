@@ -1,12 +1,13 @@
 buildscript {
     repositories {
-        mavenRepo(url: 'http://dl.bintray.com/kachelzaehler/gradle-plugins') 
+        jcenter()
     }
 
-    dependencies { classpath 'org.gradle.api.plugins:gradle-fsm-plugin:0.1.0' }
+    dependencies { classpath 'org.gradle.api.plugins:gradle-fsm-plugin:0.2.0' }
 }
 apply plugin: 'fsm'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
 
 description = 'Example FSM Gradle build'
 version = '0.1.0'
