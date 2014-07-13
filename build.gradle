@@ -35,12 +35,12 @@ fsm {
 
 eclipse {
     classpath {
-        // add libraries from custom FirstSpirit configurations to the eclipse classpath
+        // add libraries from custom FirstSpirit configurations to the eclipse classpath (Gradle 2.0 syntax)
         plusConfigurations += [configurations.fsProvidedCompile]
         plusConfigurations += [configurations.fsProvidedRuntime]
     }
 }
 
-// add libraries from custom FirstSpirit configurations to the IntelliJ classpath
+// add libraries from custom FirstSpirit configurations to the IntelliJ classpath (Gradle 2.0 syntax)
 idea.module.scopes.COMPILE.plus += [configurations.fsProvidedCompile]
 idea.module.scopes.COMPILE.plus += [configurations.fsProvidedRuntime]
