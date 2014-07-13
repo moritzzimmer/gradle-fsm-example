@@ -3,9 +3,9 @@ buildscript {
         jcenter()
     }
 
-    dependencies { classpath 'org.gradle.api.plugins:gradle-fsm-plugin:0.2.0' }
+    dependencies { classpath 'com.github.moritzzimmer:gradle-fsm-plugin:0.3.0' }
 }
-apply plugin: 'fsm'
+apply plugin: 'com.github.moritzzimmer.fsm'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 
@@ -36,7 +36,11 @@ fsm {
 eclipse {
     classpath {
         // add libraries from custom FirstSpirit configurations to the eclipse classpath
-        plusConfigurations += configurations.fsProvidedCompile
-        plusConfigurations += configurations.fsProvidedRuntime
+        plusConfigurations += [configurations.fsProvidedCompile]
+        plusConfigurations += [configurations.fsProvidedRuntime]
     }
 }
+
+// add libraries from custom FirstSpirit configurations to the IntelliJ classpath
+idea.module.scopes.COMPILE.plus += [configurations.fsProvidedCompile]
+idea.module.scopes.COMPILE.plus += [configurations.fsProvidedRuntime]
